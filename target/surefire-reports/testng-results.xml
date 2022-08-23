@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="11662" started-at="2022-08-17T11:45:12 CEST" finished-at="2022-08-17T11:45:24 CEST">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="11662" started-at="2022-08-17T11:45:12 CEST" finished-at="2022-08-17T11:45:24 CEST">
+      <class name="com.ex.SmokeUiSuite">
+        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:com.ex.SmokeUiSuite@2a742aa2]" name="initWebDriver" is-config="true" duration-ms="4365" started-at="2022-08-17T11:45:12 CEST" finished-at="2022-08-17T11:45:17 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initWebDriver -->
+        <test-method status="PASS" signature="firstTest()[pri:0, instance:com.ex.SmokeUiSuite@2a742aa2]" name="firstTest" duration-ms="7174" started-at="2022-08-17T11:45:17 CEST" finished-at="2022-08-17T11:45:24 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTest -->
+        <test-method status="PASS" signature="closeWebDriver()[pri:0, instance:com.ex.SmokeUiSuite@2a742aa2]" name="closeWebDriver" is-config="true" duration-ms="105" started-at="2022-08-17T11:45:24 CEST" finished-at="2022-08-17T11:45:24 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeWebDriver -->
+      </class> <!-- com.ex.SmokeUiSuite -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
