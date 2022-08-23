@@ -45,32 +45,25 @@ public class HomeWorkTests extends BaseTest {
                 elementOfTable = i;
             }
         }
-        HashSet<String> uniqLastName = new HashSet<>();
-        List<WebElement> tableSell = new ArrayList<>();
-        List<WebElement> tableRow = webDriver.findElements(By.xpath
-                ("//div[@class='divTableCell']//parent::div[@class='divTableRow']"));
+        List<WebElement> tableRow = webDriver.findElements(By.xpath("//div[@class='divTableCell']//parent::div[@class='divTableRow']"));
+        Set<String> uniqLastName = new HashSet<>();
+
         int finalElementOfTable = elementOfTable;
         for (WebElement x : tableRow) {
-            if(x.findElements(By.xpath(".//div[@class='divTableCell']")).get(finalElementOfTable).getText().contains("Strong")){
-                x.findElement(By.xpath(".//input")).click();
-            }
+                    uniqLastName.add(x.findElements(By.xpath(".//div[@class='divTableCell']")).get(finalElementOfTable).getText());
+        }
+        List<String> uniqList = new ArrayList<String>(uniqLastName);
+        Collections.shuffle(uniqList);
+        System.out.println(uniqList);
 
+        for (int s=0; s<3; s++) {
+            for (WebElement v : tableRow) {
+                if ((uniqList.get(s)).equals(v.findElements(By.xpath(".//div[@class='divTableCell']")).get(finalElementOfTable).getText())) {
+                    v.findElement(By.xpath(".//input")).click();
+                    break;
+                }
+            }
         }
         System.out.println();
-
-
-//        for (int k=0; k<tableRow.size(); k++){
-//             webDriver.findElements((By) tableRow.get(k));
-//
-//        }
-//        List<String> uniqLastNames = new ArrayList<>();
-//        for(int i=1; i<elements.size(); i++){
-//           List<String> tempStr = Arrays.asList((elements.get(i)).getText().split(" "));
-//           if(!uniqLastNames.contains(tempStr.get(1))){
-//               uniqLastNames.add(tempStr.get(1) +" "+ checkBox.get(i - 1));
-//           }
-//        }
-
-
     }
 }
