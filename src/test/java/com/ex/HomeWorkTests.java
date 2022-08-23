@@ -27,38 +27,44 @@ public class HomeWorkTests extends BaseTest {
         webDriver.get("https://theautomationzone.blogspot.com/");
         webDriver.findElement(By.xpath("//input[@id='photo']")).sendKeys("/home/oleh/lesson18/src/main/resources/exceptions.txt");
         webDriver.findElement(By.xpath("//button[@id='submit']")).click();
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+
+    }
+
+    public int indexOfColumn(String str){
+        List<WebElement> tableHeadList = webDriver.findElements(By.xpath("//div[@class='divTableRow']/child::div[@class='divTableHead']"));
+        int elementOfTable = 0;
+        for (int i = 0; i < tableHeadList.size(); i++) {
+            if (tableHeadList.get(i).getText().equals(str)) {
+                elementOfTable = i;
+            }
+        }
+        return  elementOfTable;
+    }
+    public List<String> uniqListOfNames(List<WebElement> tableRow, int index){
+        Set<String> uniqListName = new HashSet<>();
+
+        for (WebElement x : tableRow) {
+            uniqListName.add(x.findElements(By.xpath(".//div[@class='divTableCell']")).get(index).getText());
         }
 
+        List<String> uniqList = new ArrayList<String>(uniqListName);
+        Collections.shuffle(uniqList);
+
+        return uniqList;
     }
 
     @Test
     public void testUiSampleTable() {
         webDriver.get("https://theautomationzone.blogspot.com/");
-        List<WebElement> tableHeadList = webDriver.findElements(By.xpath("//div[@class='divTableRow']/child::div[@class='divTableHead']"));
-        int elementOfTable = 0;
-        for (int i = 0; i < tableHeadList.size(); i++) {
-            if (tableHeadList.get(i).getText().equals("Lastname")) {
-                elementOfTable = i;
-            }
-        }
+        int indexColumn = indexOfColumn("Lastname");
+
         List<WebElement> tableRow = webDriver.findElements(By.xpath("//div[@class='divTableCell']//parent::div[@class='divTableRow']"));
-        Set<String> uniqLastName = new HashSet<>();
 
-        int finalElementOfTable = elementOfTable;
-        for (WebElement x : tableRow) {
-                    uniqLastName.add(x.findElements(By.xpath(".//div[@class='divTableCell']")).get(finalElementOfTable).getText());
-        }
-        List<String> uniqList = new ArrayList<String>(uniqLastName);
-        Collections.shuffle(uniqList);
-        System.out.println(uniqList);
+        List<String> uniqList = uniqListOfNames(tableRow, indexColumn);
 
-        for (int s=0; s<3; s++) {
+        for (int s = 0; s < 3; s++) {
             for (WebElement v : tableRow) {
-                if ((uniqList.get(s)).equals(v.findElements(By.xpath(".//div[@class='divTableCell']")).get(finalElementOfTable).getText())) {
+                if ((uniqList.get(s)).equals(v.findElements(By.xpath(".//div[@class='divTableCell']")).get(indexColumn).getText())) {
                     v.findElement(By.xpath(".//input")).click();
                     break;
                 }
