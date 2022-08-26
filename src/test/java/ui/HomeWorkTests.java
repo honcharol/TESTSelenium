@@ -1,9 +1,10 @@
-package com.ex;
+package ui;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import ui.BaseTest;
 
 import java.util.*;
 
@@ -47,7 +48,7 @@ public class HomeWorkTests extends BaseTest {
             uniqListName.add(x.findElements(By.xpath(".//div[@class='divTableCell']")).get(index).getText());
         }
 
-        List<String> uniqList = new ArrayList<String>(uniqListName);
+        List<String> uniqList = new ArrayList<>(uniqListName);
         Collections.shuffle(uniqList);
 
         return uniqList;

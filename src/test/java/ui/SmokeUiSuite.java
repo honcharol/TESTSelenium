@@ -1,8 +1,10 @@
-package com.ex;
+package ui;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import ui.BaseTest;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SmokeUiSuite extends BaseTest {

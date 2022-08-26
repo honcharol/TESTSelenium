@@ -1,15 +1,15 @@
-package com.ex;
+package ui;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import ui.BaseTest;
 
 import java.util.List;
 import java.util.Objects;
 
-public class SomeOtherTests extends BaseTest{
+public class SomeOtherTests extends BaseTest {
     @Test
     public void testUiContains(){
         webDriver.get("https://output.jsbin.com/osebed/2");
