@@ -41,6 +41,5 @@ public class WaitersSeleniumSuite extends BaseTest {
         List<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs.get(1));
         findElement(webDriver, By.xpath("//a[@id='ui-id-3']"));
-        System.out.println();
     }
 }
