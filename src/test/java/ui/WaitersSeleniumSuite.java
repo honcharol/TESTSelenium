@@ -17,16 +17,15 @@ public class WaitersSeleniumSuite extends BaseTest {
     @Test
     public void threadSleep() {
         webDriver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
-        findElement(webDriver, By.xpath("//input[@id='email_create']"))
+        findElementCustom(webDriver, By.xpath("//input[@id='email_create']"))
                 .sendKeys("someemail1@email.com");
-        findElement(webDriver, By.xpath("//button[@id='SubmitCreate']")).click();
+        findElementCustom(webDriver, By.xpath("//button[@id='SubmitCreate']")).click();
 
         waitForElementToBeClickable(webDriver, By.xpath("//button[contains(.,'Register')]")).click();
 
 
 //        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
 //        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(.,'Register')]")));
-//
 //        webDriver.findElement(By.xpath("//button[contains(.,'Register')]")).isDisplayed();
     }
 
@@ -40,6 +39,6 @@ public class WaitersSeleniumSuite extends BaseTest {
 
         List<String> tabs = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs.get(1));
-        findElement(webDriver, By.xpath("//a[@id='ui-id-3']"));
+        findElementCustom(webDriver, By.xpath("//a[@id='ui-id-3']"));
     }
 }

@@ -12,7 +12,7 @@ import java.time.Duration;
 public class WebHelpers {
 
     long timeOut = 20l;
-    public WebElement findElement (WebDriver webDriver, By locator) {
+    public WebElement findElementCustom (WebDriver webDriver, By locator) {
         return new WebDriverWait(webDriver, Duration.ofSeconds(timeOut))
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
